@@ -16,7 +16,7 @@ Tecnologias Utilizadas
     
 Instalação
 
-    Clone o repositório:
+Clone o repositório:
 
 git clone https://github.com/andreyfcs/CRUD_API_Mysql.git
 
