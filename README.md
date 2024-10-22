@@ -23,34 +23,18 @@ Instalação
 
 git clone https://github.com/andreyfcs/CRUD_API_Mysql.git
 
-Acesse o diretório do projeto:
-
-bash
-
-cd CRUD_API_Mysql
-
 Instale as dependências do projeto:
-
-bash
 
 npm install
 
 Configure as credenciais do banco de dados:
 
-    No arquivo config/db.config.js, altere as configurações de acordo com o seu ambiente MySQL (host, usuário, senha, nome do banco de dados).
+  altere as configurações de acordo com o seu ambiente MySQL 
+  (host, usuário, senha, nome do banco de dados).
 
 Executando o Projeto
 
     Após configurar o banco de dados, execute o servidor:
-
-    bash
-
-Melhorias Futuras
-
-    Implementação de autenticação (JWT, OAuth).
-    Validação dos dados de entrada nas rotas (express-validator).
-    Tratamento de erros mais robusto.
-    Adicionar testes automatizados.
 
 Contribuição
 
