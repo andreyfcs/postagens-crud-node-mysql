@@ -1,6 +1,7 @@
 CRUD API com MySQL
 
 Este projeto é uma API RESTful simples para realizar operações CRUD (Create, Read, Update, Delete) em um banco de dados MySQL. Ele foi desenvolvido com Node.js, Express e utiliza MySQL como banco de dados relacional.
+
 Funcionalidades
 
     Adicionar novos itens
