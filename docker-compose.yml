@@ -6,7 +6,7 @@ services:
     ports:
       - "3005:3005"
     environment:
-      DB_HOST: localhost  # Mantenha o nome do seu container MySQL aqui
+      DB_HOST: db  # Mantenha o nome do seu container MySQL aqui
       DB_USER: usuario
       DB_PASSWORD: senha
-      DB_NAME: api_crud
+      DB_NAME: api
