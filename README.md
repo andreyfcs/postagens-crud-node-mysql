@@ -7,8 +7,7 @@ Funcionalidades
     Listar todos os itens
     Edição de um item 
     Remover itens 
-    
-
+  
 Tecnologias Utilizadas
 
     Node.js
@@ -18,8 +17,6 @@ Tecnologias Utilizadas
 Instalação
 
     Clone o repositório:
-
-    bash
 
 git clone https://github.com/andreyfcs/CRUD_API_Mysql.git
 
@@ -31,10 +28,9 @@ Configure as credenciais do banco de dados:
 
   altere as configurações de acordo com o seu ambiente MySQL 
   (host, usuário, senha, nome do banco de dados).
+  Após configurar o banco de dados, execute o servidor:
 
-Executando o Projeto
-
-    Após configurar o banco de dados, execute o servidor:
+ npm start
 
 Contribuição
 
