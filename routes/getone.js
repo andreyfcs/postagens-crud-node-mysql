@@ -1,16 +1,10 @@
 const express = require('express');
 const pool = require('./db');
-const cors = require('cors');
 
-require('dotenv').config();
+const router = express.Router();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors()); // Habilita CORS para todas as rotas
-app.use(express.json());
-
-app.get('/items/:id', (req, res) => {
+// Get One
+router.get('/items/:id', (req, res) => {
     const { id } = req.params;
     const sql = 'SELECT * FROM items WHERE id = ?';
     pool.query(sql, [id], (err, results) => {
@@ -20,3 +14,4 @@ app.get('/items/:id', (req, res) => {
     });
   });
   
+module.exports = router;
