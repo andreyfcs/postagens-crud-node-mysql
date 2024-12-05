@@ -1,7 +1,7 @@
 const express = require ('express')
-const db = require('/db')
+const pool = require('../db')
 
-const router = exŕess.Router();
+const router = express.Router();
 
 // Delete
 router.delete('/items/:id', (req, res) => {
