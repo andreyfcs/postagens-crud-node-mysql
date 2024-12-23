@@ -64,16 +64,19 @@ PORT=3000
 
 Abaixo estão alguns exemplos de como utilizar os endpoints da API:
 
-    GET: /api/usuarios
+    GET: /items
     Retorna todos os usuários do banco de dados.
 
-    POST: /api/usuarios
+    GET: /items/:id
+    Retorna todos os usuários do banco de dados.
+    
+    POST: /items
     Cria um novo usuário com os dados enviados no corpo da requisição (JSON).
 
-    PUT: /api/usuarios/:id
+    PUT: /items/:id
     Atualiza os dados de um usuário pelo ID fornecido.
 
-    DELETE: /api/usuarios/:id
+    DELETE: /items/:id
     Exclui um usuário pelo ID fornecido.
 
 Instalação
