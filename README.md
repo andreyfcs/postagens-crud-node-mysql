@@ -1,236 +1,90 @@
-Documentação da API Modular - Gerenciamento de Itens
+Documentação da API - CRUD com Node.js, Express e MySQL
+Tecnologias Utilizadas
 
-Índice
+    Node.js: Ambiente de execução JavaScript no servidor.
+    Express.js: Framework para Node.js utilizado para criar a API.
+    MySQL: Banco de dados relacional utilizado para armazenar os dados.
+    Cors: Middleware que permite a comunicação da API com aplicações de diferentes domínios.
+    Dotenv: Biblioteca que carrega variáveis de ambiente a partir de um arquivo .env.
 
-Introdução
+Objetivo
 
-Pré-requisitos
-
-Instruções de Instalação
-
+A API foi desenvolvida para fornecer endpoints para operações CRUD (Create, Read, Update, Delete) de um banco de dados MySQL. Ela permite criar, ler, atualizar e excluir registros em uma tabela do banco de dados.
 Estrutura do Projeto
 
-Rotas e Endpoints
+    index.js: Arquivo principal onde a aplicação Express é configurada e onde as rotas são integradas.
+    router/: Diretório contendo os arquivos que gerenciam as rotas para as operações CRUD. Cada operação (GET, POST, PUT, DELETE) tem seu próprio arquivo de rota, o que facilita a escalabilidade e manutenção do código.
 
-Configuração do Banco de Dados
+Exemplo de Estrutura do Projeto
 
-Próximas Melhorias
+    /my-api
+    ├── node_modules/
+    ├── router/
+    │   ├── getRoutes.js
+    │   ├── postRoutes.js
+    │   ├── putRoutes.js
+    │   └── deleteRoutes.js
+    ├── .env
+    ├── index.js
+    ├── package.json
+    └──  package-lock.json
 
-1. Introdução
+Como Funciona
 
-Esta API modular foi desenvolvida utilizando Node.js com Express e MySQL. Seu objetivo é fornecer endpoints para operações CRUD (Create, Read, Update, Delete) sobre um recurso chamado "items".
+    Express Router: A funcionalidade Express Router foi utilizada para organizar as rotas da API. Cada arquivo de rota (dentro de router/) contém um conjunto de endpoints para uma operação específica (GET, POST, PUT, DELETE).
+    CORS (Cross-Origin Resource Sharing): O middleware cors foi configurado para permitir que a API seja acessada de domínios externos, garantindo maior flexibilidade para integrar a API com outras aplicações.
+    Dotenv: As variáveis de ambiente são carregadas a partir de um arquivo .env, onde informações sensíveis como credenciais de banco de dados e outras configurações são armazenadas.
 
-A arquitetura modular facilita a manutenção e escalabilidade, permitindo a adição de novos módulos sem afetar o funcionamento do sistema.
+Funcionamento do CRUD
 
-2. Pré-requisitos
+    GET (/getRoutes.js): Rota responsável por obter os dados do banco de dados.
+    POST (/postRoutes.js): Rota para inserir novos registros no banco de dados.
+    PUT (/putRoutes.js): Rota para atualizar registros existentes.
+    DELETE (/deleteRoutes.js): Rota para excluir registros do banco de dados.
 
-Node.js versão 16 ou superior.
+Exemplo de Como Usar a API
+1. Iniciar o Servidor
 
-NPM ou Yarn.
+Execute o comando abaixo para iniciar o servidor:
 
-MySQL instalado e configurado.
+node index.js
 
-Docker (opcional, para rodar o MySQL em container).
+Isso irá rodar o servidor na porta configurada na variável de ambiente PORT.
+2. Variáveis de Ambiente
 
-Git instalado.
-
-3. Instruções de Instalação
-
-1. Clone o repositório
-
-git clone <URL_DO_REPOSITORIO>
-
-2. Acesse o diretório do projeto
-
-cd nome_do_projeto
-
-3. Instale as dependências
-
-npm install
-
-4. Configuração do ambiente
-
-Renomeie o arquivo .env.example para .env e configure as variáveis:
+No arquivo .env, defina as variáveis necessárias para conectar ao banco de dados MySQL:
 
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=senha
-DB_NAME=database_name
+DB_NAME=meu_banco
 PORT=3000
 
-5. Execute o servidor
+3. Endpoints
 
-npm start
+Abaixo estão alguns exemplos de como utilizar os endpoints da API:
 
-O servidor estará disponível em: http://localhost:3000
+    GET: /api/usuarios
+    Retorna todos os usuários do banco de dados.
 
-4. Estrutura do Projeto
+    POST: /api/usuarios
+    Cria um novo usuário com os dados enviados no corpo da requisição (JSON).
 
-├── db.js
-├── index.js
-├── routes
-│   ├── delete.js
-│   ├── getall.js
-│   ├── getone.js
-│   ├── post.js
-│   ├── put.js
-└── .env
+    PUT: /api/usuarios/:id
+    Atualiza os dados de um usuário pelo ID fornecido.
 
-db.js - Conexão com o banco de dados MySQL.
+    DELETE: /api/usuarios/:id
+    Exclui um usuário pelo ID fornecido.
 
-index.js - Arquivo principal que inicializa o servidor e importa as rotas.
+Instalação
 
-routes/ - Contém as rotas organizadas por operação CRUD.
+    Clone o repositório ou faça o download dos arquivos.
+    Instale as dependências executando:
 
-.env - Variáveis de ambiente para configuração segura.
+npm install
 
-5. Rotas e Endpoints
+    Crie um arquivo .env e configure as variáveis de ambiente.
 
-1. Criar Item (POST)
+    Inicie o servidor:
 
-POST /items
-
-Body (JSON):
-
-{
-  "name": "Nome do Item",
-  "description": "Descrição do Item"
-}
-
-Resposta:
-
-201 Created
-{
-  "id": 1,
-  "name": "Nome do Item",
-  "description": "Descrição do Item"
-}
-
-2. Buscar Todos os Itens (GET)
-
-GET /items
-
-Resposta:
-
-200 OK
-[
-  {
-    "id": 1,
-    "name": "Nome do Item",
-    "description": "Descrição do Item"
-  }
-]
-
-3. Buscar um Item por ID (GET)
-
-GET /items/:id
-
-Resposta:
-
-200 OK
-{
-  "id": 1,
-  "name": "Nome do Item",
-  "description": "Descrição do Item"
-}
-
-Erros:
-
-404 Not Found: Item não encontrado.
-
-4. Atualizar um Item (PUT)
-
-PUT /items/:id
-
-Body (JSON):
-
-{
-  "name": "Novo Nome",
-  "description": "Nova Descrição"
-}
-
-Resposta:
-
-200 OK
-{
-  "id": 1,
-  "name": "Novo Nome",
-  "description": "Nova Descrição"
-}
-
-Erros:
-
-404 Not Found: Item não encontrado.
-
-5. Deletar um Item (DELETE)
-
-DELETE /items/:id
-
-Resposta:
-
-200 OK
-{
-  "message": "Item deletado com sucesso"
-}
-
-Erros:
-
-404 Not Found: Item não encontrado.
-
-6. Configuração do Banco de Dados
-
-Certifique-se de criar o banco de dados e a tabela necessária:
-
-CREATE DATABASE database_name;
-
-USE database_name;
-
-CREATE TABLE items (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description TEXT
-);
-
-7. Próximas Melhorias
-
-Autenticação e Autorização:
-
-Implementar JWT para proteger endpoints.
-
-Paginação e Ordenação:
-
-Adicionar suporte para paginação nos endpoints GET /items.
-
-Validações de Entrada:
-
-Utilizar bibliotecas como Joi ou Express-Validator para validar os dados.
-
-Logs e Monitoramento:
-
-Adicionar ferramentas como Winston ou Morgan para registrar logs.
-
-Testes Automatizados:
-
-Implementar testes unitários e de integração utilizando Jest ou Mocha.
-
-Dockerização Completa:
-
-Criar um Dockerfile para a aplicação e usar docker-compose para rodar o sistema com o banco de dados.
-
-Contribuição
-
-Contribuições são bem-vindas! Para contribuir:
-
-Fork o repositório.
-
-Crie uma branch: git checkout -b feature/nova-funcionalidade.
-
-Commit suas mudanças: git commit -m 'Adiciona nova funcionalidade'.
-
-Envie para o repositório remoto: git push origin feature/nova-funcionalidade.
-
-Abra um Pull Request.
-
-Licença
-
-Este projeto está licenciado sob a licença MIT - consulte o arquivo LICENSE para obter mais detalhes.
+node index.js
