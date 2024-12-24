@@ -118,23 +118,6 @@ node index.js
 <br>
 Código SQL para criar banco de dados com nome "teste" e a tabela "items" com os campos "nome" e "descrição" 
 
-```bash
-CREATE DATABASE IF NOT EXISTS teste;
-
-USE teste;
-
-CREATE TABLE IF NOT EXISTS items (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    descricao TEXT NOT NULL
-);
-
-INSERT INTO items (nome, descricao) VALUES
-('Item 1', 'Descrição do Item 1'),
-('Item 2', 'Descrição do Item 2'),
-('Item 3', 'Descrição do Item 3');
-```
-
 <br>Implementações futuras:
 
 1. Autenticação e Autorização:
