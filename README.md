@@ -14,7 +14,7 @@ Tecnologias Utilizadas
 
 Objetivo
 
-A API foi desenvolvida para fornecer endpoints para operações CRUD (Create, Read, Update, Delete) de um banco de dados MySQL. Ela permite criar, ler, atualizar e excluir registros em uma tabela do banco de dados.
+A API foi desenvolvida na arquitetura RESTful para fornecer endpoints para operações CRUD (Create, Read, Update, Delete) de um banco de dados MySQL. Ela permite criar, ler, atualizar e excluir registros em uma tabela do banco de dados.
 
 Estrutura do Projeto
 
@@ -182,24 +182,3 @@ INSERT INTO items (nome, descricao) VALUES
 
         Adicionar suporte para banco de dados NoSQL como MongoDB, além de MySQL.
 
--Características de uma API RESTful:
-    
-
-     Recursos identificados por URLs: Cada recurso (como items) tem uma URL única associada, o que está claramente presente na sua API (exemplo: /items, /items/:id).
-
-- Métodos HTTP usados corretamente:
-        
-        GET para obter recursos (/items e /items/:id).
-        POST para criar um novo recurso (/items).
-        PUT para atualizar um recurso existente (/items/:id).
-        DELETE para excluir um recurso (/items/:id).
-
-- Operações sem estado: 
-    
-        Cada requisição é independente e contém todas as informações necessárias para ser processada (como parâmetros ou corpo da requisição).
-
-- Representações de recursos:
-    
-        Os dados dos itens são retornados no formato JSON, que é uma representação comum dos recursos em APIs RESTful.
-
-        
