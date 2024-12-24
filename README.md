@@ -46,7 +46,7 @@ CORS (Cross-Origin Resource Sharing): O middleware cors foi configurado para per
 Dotenv: As variáveis de ambiente são carregadas a partir de um arquivo .env, onde informações sensíveis como credenciais de banco de dados e outras configurações são armazenadas.
 
 Funcionamento das rotas CRUD
-
+```bash
 GET: (router/getall): Rota responsável por obter os dados do banco de dados.
 
 GET: (router/getone): Rota responsável por obter os dados de um id do banco de dados.
@@ -56,7 +56,7 @@ POST: (router/post.js): Rota para inserir novos registros no banco de dados.
 PUT: (router/put.js): Rota para atualizar registros existentes.
     
 DELETE: (router/delete.js): Rota para excluir registros do banco de dados.
-
+```
 
 
 Exemplo de Como Usar a API
@@ -115,7 +115,8 @@ configure o arquivo .env e incie o servidor:
 ```bash
 node index.js
 ```
-Código SQL para criar banco de dados com nome "teste" com tabela "items" com os campos "nome" e "descrição"
+<br>
+Código SQL para criar banco de dados com nome "teste" e a tabela "items" com os campos "nome" e "descrição" 
 
 ```bash
 CREATE DATABASE IF NOT EXISTS teste;
