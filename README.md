@@ -18,9 +18,9 @@ A API foi desenvolvida para fornecer endpoints para operações CRUD (Create, Re
 
 Estrutura do Projeto
 
-    index.js: Arquivo principal onde a aplicação Express é configurada e onde as rotas são integradas.
+index.js: Arquivo principal onde a aplicação Express é configurada e onde as rotas são integradas.
 
-    router/: Diretório contendo os arquivos que gerenciam as rotas para as operações CRUD. Cada operação (GET, POST, PUT, DELETE) tem seu próprio arquivo de rota, o que facilita a escalabilidade e manutenção do código.
+router/: Diretório contendo os arquivos que gerenciam as rotas para as operações CRUD. Cada operação (GET, POST, PUT, DELETE) tem seu próprio arquivo de rota, o que facilita a escalabilidade e manutenção do código.
 
 Exemplo de Estrutura do Projeto
 
@@ -39,23 +39,23 @@ Exemplo de Estrutura do Projeto
 
 Como Funciona
 
-    Express Router: A funcionalidade Express Router foi utilizada para organizar as rotas da API. Cada arquivo de rota (dentro de router/) contém um conjunto de endpoints para uma operação específica (GET, POST, PUT, DELETE).
+Express Router: A funcionalidade Express Router foi utilizada para organizar as rotas da API. Cada arquivo de rota (dentro de router/) contém um conjunto de endpoints para uma operação específica (GET, POST, PUT, DELETE).
 
-    CORS (Cross-Origin Resource Sharing): O middleware cors foi configurado para permitir que a API seja acessada de domínios externos, garantindo maior flexibilidade para integrar a API com outras aplicações.
+CORS (Cross-Origin Resource Sharing): O middleware cors foi configurado para permitir que a API seja acessada de domínios externos, garantindo maior flexibilidade para integrar a API com outras aplicações.
 
-    Dotenv: As variáveis de ambiente são carregadas a partir de um arquivo .env, onde informações sensíveis como credenciais de banco de dados e outras configurações são armazenadas.
+Dotenv: As variáveis de ambiente são carregadas a partir de um arquivo .env, onde informações sensíveis como credenciais de banco de dados e outras configurações são armazenadas.
 
 Funcionamento das rotas CRUD
 
-    GET (/getall): Rota responsável por obter os dados do banco de dados.
+GET: (router/getall): Rota responsável por obter os dados do banco de dados.
 
-    GET (/getone): Rota responsável por obter os dados de um id do banco de dados.
+GET: (router/getone): Rota responsável por obter os dados de um id do banco de dados.
     
-    POST (/post.js): Rota para inserir novos registros no banco de dados.
+POST: (router/post.js): Rota para inserir novos registros no banco de dados.
     
-    PUT (/put.js): Rota para atualizar registros existentes.
+PUT: (router/put.js): Rota para atualizar registros existentes.
     
-    DELETE (/delete.js): Rota para excluir registros do banco de dados.
+DELETE: (router/delete.js): Rota para excluir registros do banco de dados.
 
 
 
@@ -104,13 +104,13 @@ Abaixo estão alguns exemplos de como utilizar os endpoints da API:
 
 Instalação
 
-    Clone o repositório ou faça o download dos arquivos.
-    Instale as dependências executando:
+Clone o repositório ou faça o download dos arquivos.
+Instale as dependências executando:
 
 ```bash
 npm install
 ```
-   configure o arquivo .env e incie o servidor:    
+configure o arquivo .env e incie o servidor:    
 
 ```bash
 node index.js
@@ -118,23 +118,18 @@ node index.js
 Código SQL para criar banco de dados com nome "teste" com tabela "items" com os campos "nome" e "descrição"
 
 ```bash
--- Criar o banco de dados
 CREATE DATABASE IF NOT EXISTS teste;
 
--- Selecionar o banco de dados
 USE teste;
 
--- Criar a tabela 'items'
 CREATE TABLE IF NOT EXISTS items (
-    id INT AUTO_INCREMENT PRIMARY KEY,  -- Identificador único para cada item
-    nome VARCHAR(255) NOT NULL,         -- Nome do item
-    descricao TEXT NOT NULL             -- Descrição do item
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT NOT NULL
 );
 
--- Inserir alguns dados de exemplo
-INSERT INTO items (nome, descricao) VALUES 
+INSERT INTO items (nome, descricao) VALUES
 ('Item 1', 'Descrição do Item 1'),
 ('Item 2', 'Descrição do Item 2'),
 ('Item 3', 'Descrição do Item 3');
-
 ```
