@@ -7,12 +7,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'http://localhost:3002', // Permite apenas requisições do frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Headers permitidos
-  credentials: true // Permite cookies e headers de autenticação
-}));
+app.use(cors());
 app.use(express.json());
 
 // Importando as rotas
