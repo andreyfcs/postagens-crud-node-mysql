@@ -4,9 +4,10 @@ services:
   api:
     build: .
     ports:
-      - "3005:3005"
+      - "3007:3007"  # Porta da aplicação
     environment:
-      DB_HOST: db  # Mantenha o nome do seu container MySQL aqui
-      DB_USER: usuario
-      DB_PASSWORD: senha
-      DB_NAME: api
+      DB_HOST: mysql_db           # Nome do container do MySQL já rodando (certifique-se de que esse container esteja na mesma rede ou configurado para resolver esse nome)
+      DB_USER: andreyz             # Usuário do banco de dados
+      DB_PASSWORD: "af881335$$"     # Senha do banco de dados (coloque entre aspas para evitar problemas com $)
+      DB_NAME: auth_system         # Nome do banco de dados
+      MYSQL_PORT: 3306            # Porta interna do MySQL (dentro do container, normalmente 3306)
